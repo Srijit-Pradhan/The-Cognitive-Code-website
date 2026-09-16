@@ -8,6 +8,8 @@ import BookDetail from './pages/BookDetail';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Disclaimer from './pages/Disclaimer';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminLogin from './pages/admin/AdminLogin';
 import ReadBook from './pages/ReadBook';
@@ -21,6 +23,8 @@ const RouteTitleHandler = () => {
       '/about': 'About - TCC',
       '/contact': 'Contact - TCC',
       '/disclaimer': 'Disclaimer - TCC',
+      '/privacy': 'Privacy Policy - TCC',
+      '/terms': 'Terms of Service - TCC',
       '/admin': 'Dashboard - TCC',
       '/admin/login': 'Admin Login - TCC',
     };
@@ -54,6 +58,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/disclaimer" element={<Disclaimer />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsOfService />} />
           
           {/* Admin Routes */}
           <Route path="/admin/login" element={<AdminLogin />} />

@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --color-parchment: #E5CAA7;
+  --color-parchment-sec: #DDC3A1;
+  --color-brand-brown: #382619;
+  --color-brand-brown-sec: #6C5B3F;
+  --color-brand-olive: #877851;
+  --color-surface: #F0DEC2;
+
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "DM Serif Display", serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: var(--color-surface);
+    color: var(--color-brand-brown);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Optional very subtle noise texture */
+    /* background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E"); */
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+  }
+}
+
+@keyframes pulse-node {
+  0% { r: 1.5; opacity: 0.5; }
+  100% { r: 2.5; opacity: 1; }
+}
+@keyframes draw-line {
+  0% { stroke-dashoffset: 100; }
+  100% { stroke-dashoffset: -100; }
+}
+@keyframes float-brain {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-5px); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .animate-pulse-node { animation: pulse-node 4s infinite ease-in-out alternate; }
+  .animate-draw-line { stroke-dasharray: 100; animation: draw-line 8s infinite linear; }
+  .animate-float-brain { animation: float-brain 6s infinite ease-in-out alternate; }
+}

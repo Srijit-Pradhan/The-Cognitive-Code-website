@@ -17,6 +17,9 @@ import ReadBook from './pages/ReadBook';
 const RouteTitleHandler = () => {
   const location = useLocation();
   useEffect(() => {
+    // Scroll to the top of the page on every route change
+    window.scrollTo(0, 0);
+    
     const routeTitles = {
       '/': 'Home - TCC',
       '/books': 'Library - TCC',

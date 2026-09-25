@@ -102,34 +102,26 @@ export default function ReadBook() {
         className="flex-grow w-full bg-[#f4f1ea] overflow-y-auto"
         style={{ scrollBehavior: 'smooth' }}
       >
-        {book.content ? (
-          <div className="w-full h-full p-6 md:p-12">
-            <div className="bg-white rounded-lg shadow-md p-8 md:p-12 max-w-4xl mx-auto prose prose-stone lg:prose-lg text-brand-brown min-h-full">
-              <div dangerouslySetInnerHTML={{ __html: book.content }} />
-            </div>
-          </div>
-        ) : (
-          <div className="w-full flex flex-col items-center py-8">
-            <Document
-              file={book.pdfUrl}
-              onLoadSuccess={onDocumentLoadSuccess}
-              loading={<div className="text-brand-brown p-8 animate-pulse">Loading book pages...</div>}
-              error={<div className="text-red-600 p-8">Failed to load PDF. Please try downloading it directly.</div>}
-            >
-              {Array.from(new Array(numPages || 0), (el, index) => (
-                <div key={`page_${index + 1}`} className="mb-6 shadow-xl bg-white border border-brand-brown/5">
-                  <Page 
-                    pageNumber={index + 1} 
-                    width={pageWidth} 
-                    renderTextLayer={true}
-                    renderAnnotationLayer={true}
-                    loading={<div className="bg-white/50 w-full h-[800px] animate-pulse"></div>}
-                  />
-                </div>
-              ))}
-            </Document>
-          </div>
-        )}
+        <div className="w-full flex flex-col items-center py-8">
+          <Document
+            file={book.pdfUrl}
+            onLoadSuccess={onDocumentLoadSuccess}
+            loading={<div className="text-brand-brown p-8 animate-pulse">Loading book pages...</div>}
+            error={<div className="text-red-600 p-8">Failed to load PDF. Please try downloading it directly.</div>}
+          >
+            {Array.from(new Array(numPages || 0), (el, index) => (
+              <div key={`page_${index + 1}`} className="mb-6 shadow-xl bg-white border border-brand-brown/5">
+                <Page 
+                  pageNumber={index + 1} 
+                  width={pageWidth} 
+                  renderTextLayer={true}
+                  renderAnnotationLayer={true}
+                  loading={<div className="bg-white/50 w-full h-[800px] animate-pulse"></div>}
+                />
+              </div>
+            ))}
+          </Document>
+        </div>
       </div>
     </div>
   );

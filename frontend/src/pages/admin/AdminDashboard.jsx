@@ -15,7 +15,7 @@ export default function AdminDashboard() {
   const [formData, setFormData] = useState({
     title: '', slug: '', subtitle: '', description: '', 
     category: 'Intelligence', author: 'The Cognitive Code', 
-    youtubeUrl: '', content: ''
+    youtubeUrl: ''
   });
   const [coverFile, setCoverFile] = useState(null);
   const [pdfFile, setPdfFile] = useState(null);
@@ -66,7 +66,7 @@ export default function AdminDashboard() {
       title: book.title, slug: book.slug, subtitle: book.subtitle || '', 
       description: book.description, category: book.category, 
       author: book.author || 'The Cognitive Code', 
-      youtubeUrl: book.youtubeUrl || '', content: book.content || ''
+      youtubeUrl: book.youtubeUrl || ''
     });
     setCoverFile(null);
     setPdfFile(null);
@@ -98,7 +98,7 @@ export default function AdminDashboard() {
       setShowForm(false);
       setEditingBookId(null);
       setFormData({
-        title: '', slug: '', subtitle: '', description: '', category: 'Intelligence', author: 'The Cognitive Code', youtubeUrl: '', content: ''
+        title: '', slug: '', subtitle: '', description: '', category: 'Intelligence', author: 'The Cognitive Code', youtubeUrl: ''
       });
     } catch (err) {
       console.error(err);
@@ -256,11 +256,6 @@ export default function AdminDashboard() {
               <div>
                 <label className="block text-sm font-medium mb-1 text-brand-brown">YouTube Video URL</label>
                 <input type="url" className="w-full border rounded p-2 text-brand-brown" value={formData.youtubeUrl} onChange={e => setFormData({...formData, youtubeUrl: e.target.value})} placeholder="https://youtube.com/watch?v=..." />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium mb-1 text-brand-brown">Content (Optional HTML for reading view)</label>
-                <textarea rows="4" className="w-full border rounded p-2 text-brand-brown" value={formData.content} onChange={e => setFormData({...formData, content: e.target.value})}></textarea>
               </div>
 
               <button type="submit" disabled={formLoading} className="w-full bg-brand-brown text-surface font-semibold py-3 rounded hover:bg-brand-brown/90 mt-4 disabled:opacity-70">

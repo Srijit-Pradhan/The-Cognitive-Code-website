@@ -57,7 +57,7 @@ router.post('/login', async (req, res) => {
 // @access  Private
 router.post('/books', [auth, upload.fields([{ name: 'cover', maxCount: 1 }, { name: 'pdf', maxCount: 1 }])], async (req, res) => {
   try {
-    const { title, slug, subtitle, description, category, author, youtubeUrl, tableOfContents, content } = req.body;
+    const { title, slug, subtitle, description, category, author, youtubeUrl, tableOfContents } = req.body;
 
     let coverImageUrl = '';
     let pdfUrl = '';

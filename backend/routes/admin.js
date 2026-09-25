@@ -80,8 +80,7 @@ router.post('/books', [auth, upload.fields([{ name: 'cover', maxCount: 1 }, { na
       coverImageUrl,
       pdfUrl,
       youtubeUrl,
-      tableOfContents: tableOfContents ? JSON.parse(tableOfContents) : [],
-      content
+      tableOfContents: tableOfContents ? JSON.parse(tableOfContents) : []
     });
 
     const book = await newBook.save();

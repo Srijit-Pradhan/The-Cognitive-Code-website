@@ -95,7 +95,7 @@ export default function Library() {
           </div>
 
           {/* Book Grid */}
-          <div className="md:w-3/4">
+          <div className="md:w-3/4 md:h-[calc(100vh-280px)] md:min-h-[600px] md:overflow-y-auto custom-scrollbar md:pr-6 pb-12">
             {loading ? (
               <div className="flex justify-center py-20">
                 <div className="animate-pulse flex space-x-2">

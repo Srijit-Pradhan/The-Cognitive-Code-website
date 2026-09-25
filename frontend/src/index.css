@@ -50,3 +50,19 @@
   .animate-draw-line { stroke-dasharray: 100; animation: draw-line 8s infinite linear; }
   .animate-float-brain { animation: float-brain 6s infinite ease-in-out alternate; }
 }
+
+/* Custom Scrollbar specifically for inner containers */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(56, 38, 25, 0.2);
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 38, 25, 0.5);
+}
